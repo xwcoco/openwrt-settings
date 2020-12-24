@@ -25,14 +25,17 @@ uci set network.lan.netmask='255.255.255.0'
 uci set network.lan.gateway='192.168.0.1'
 uci set network.lan.dns='202.102.224.68'
 #uci set network.lan.type='bridge'
+uci set network.lan.ipv6='off'
 
 uci set network.wan = interface
 uci set network.wan.ifname = 'eth0'
 uci set network.wan.proto='none'
 
-uci set 'network.lan.ipv6=off'
-uci set 'network.wan.ipv6=off'
-uci set 'dhcp.lan.dhcpv6=disabled'
+uci commit network
+
+#uci set 'network.lan.ipv6=off'
+#uci set 'network.wan.ipv6=off'
+#uci set 'dhcp.lan.dhcpv6=disabled'
 
 /etc/init.d/odhcpd disable
 
@@ -42,7 +45,14 @@ uci del dhcp.lan.leasetime
 uci del dhcp.lan.ra
 uci del dhcp.lan.dhcpv6
 
+uci set dhcp.lan=dhcp
+uci set dhcp.lan.interface='lan'
 uci set dhcp.lan.ignore="1"
+
+uci set dhcp.wan=dhcp
+uci set dhcp.wan.interface='wan'
+uci set dhcp.wan.ignore='1'
+
 uci commit dhcp
 
 #sed -i 's/downloads.openwrt.org/openwrt.proxy.ustclug.org/g' /etc/opkg/distfeeds.conf
