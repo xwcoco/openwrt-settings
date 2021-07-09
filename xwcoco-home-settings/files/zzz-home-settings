@@ -25,7 +25,7 @@ uci set network.wan.proto='none'
 
 uci commit network
 
-uci set dhcp.@dnsmasq[0].rebind_domain='plex.direct'
+uci set dhcp.@dnsmasq[0].rebind_domain='/plex.direct/'
 
 
 uci set dhcp.lan.ignore="1"
