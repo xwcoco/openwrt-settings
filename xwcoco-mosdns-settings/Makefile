@@ -1,4 +1,4 @@
-#
+﻿#
 # Copyright (C) 2016-2017 GitHub 
 #
 # This is free software, licensed under the GNU General Public License v3.
