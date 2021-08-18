@@ -38,7 +38,7 @@ define Build/Compile
 endef
 
 define Package/xwcoco-mosdns-settings/install
-  $(INSTALL_DIR) $(1)/etc/uci-defaults
+  $(INSTALL_DIR) $(1)/etc/mosdns
   $(INSTALL_BIN) ./files/config.yaml $(1)/etc/mosdns/config.yaml
 endef
 
