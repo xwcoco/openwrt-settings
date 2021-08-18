@@ -42,4 +42,4 @@ define Package/xwcoco-mosdns-settings/install
   $(INSTALL_DATA) ./files/* $(1)/etc/mosdns/
 endef
 
-$(eval $(call BuildPackage,xwcoco-mosdns-settings))
+$(eval $(call BuildPackage,$(PKG_NAME)))
