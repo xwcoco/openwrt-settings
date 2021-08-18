@@ -38,6 +38,7 @@ define Build/Compile
 endef
 
 define Package/xwcoco-mosdns-settings/install
+  $(INSTALL_DIR) $(1)/etc/mosdns
   $(INSTALL_DATA) ./files/* $(1)/etc/mosdns/
 endef
 
