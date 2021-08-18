@@ -37,9 +37,9 @@ endef
 define Build/Compile
 endef
 
-define Package/$(PKG_NAME)/install
-  $(INSTALL_DIR) $(1)/etc/mosdns
-  $(INSTALL_DATA) ./files/* $(1)/etc/mosdns/
+define Package/xwcoco-mosdns-settings/install
+  $(INSTALL_DIR) $(1)/etc/uci-defaults
+  $(INSTALL_BIN) ./files/config.yaml $(1)/etc/mosdns/config.yaml
 endef
 
-$(eval $(call BuildPackage,$(PKG_NAME)))
+$(eval $(call BuildPackage,xwcoco-mosdns-settings))
