@@ -16,13 +16,9 @@ plugin:
         - ttl_set
       server:
         - protocol: udp
-          addr: 127.0.0.1:6052
+          addr: 127.0.0.1:5335
         - protocol: tcp
-          addr: 127.0.0.1:6052
-        - protocol: udp
-          addr: '[::1]:6052'
-        - protocol: tcp
-          addr: '[::1]:6052'
+          addr: 127.0.0.1:5335
 
   ################# 可执行插件 ################
 
