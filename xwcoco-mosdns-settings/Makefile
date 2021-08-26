@@ -16,7 +16,7 @@ PKG_BUILD_DIR := $(BUILD_DIR)/$(PKG_NAME)
 
 include $(INCLUDE_DIR)/package.mk
 
-define Package/xwcoco-mosdns-settings
+define Package/$(PKG_NAME)
   SECTION:=luci
   CATEGORY:=LuCI
   TITLE:=LuCI support for mosdns Settings by xwcoco
@@ -24,7 +24,7 @@ define Package/xwcoco-mosdns-settings
   DEPENDS:=+luci-base +@LUCI_LANG_zh-cn
 endef
 
-define Package/xwcoco-mosdns-settings/description
+define Package/$(PKG_NAME)/description
 	Language Support Packages.
 endef
 
@@ -35,9 +35,11 @@ endef
 define Build/Compile
 endef
 
-define Package/xwcoco-mos-settings/install
+define Package/$(PKG_NAME)/install
 	$(INSTALL_DIR) $(1)/etc/mosdns
 	$(INSTALL_BIN) ./files/config.yaml $(1)/etc/mosdns/config.yaml
+  $(INSTALL_DIR) $(1)/etc/uci-defaults
+  $(INSTALL_BIN) ./files/zzz-mosdns-settings $(1)/etc/uci-defaults/99-mosdns-settings
 endef
 
-$(eval $(call BuildPackage,xwcoco-mosdns-settings))
+$(eval $(call BuildPackage,$(PKG_NAME)))

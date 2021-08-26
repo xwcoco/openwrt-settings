@@ -1,5 +1,5 @@
 log:
-  level: debug
+  level: error
   file: '/var/log/mosdns.log'
 
 plugin:
@@ -16,9 +16,13 @@ plugin:
         - ttl_set
       server:
         - protocol: udp
-          addr: 127.0.0.1:5335
+          addr: "[::]:53"
         - protocol: tcp
-          addr: 127.0.0.1:5335
+          addr: "[::]:53"
+        - protocol: udp
+          addr: '[::]:5335'
+        - protocol: tcp
+          addr: '[::]:5335'
 
   ################# 可执行插件 ################
 
@@ -70,6 +74,9 @@ plugin:
         - addr: https://hkb.xwcoco.club/dns
           trusted: true
           dial_addr: '154.198.214.104:443'
+        - addr: https://jp.xwcoco.club/dns
+          dial_addr: '45.159.48.202:443'
+          trusted: true            
         - addr: https://xwcoco.club/dns
           trusted: true
           dial_addr: '35.185.165.226:443'
@@ -79,9 +86,7 @@ plugin:
         - addr: https://1.0.0.1/dns-query
           dial_addr: '1.0.0.1:443'
           trusted: true    
-        - addr: https://hk.xwcoco.club/dns
-          dial_addr: '152.32.186.23:443'
-          trusted: true  
+        
 
   - tag: 'add_ecs'
     type: 'ecs'
