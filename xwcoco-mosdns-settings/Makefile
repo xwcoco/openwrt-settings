@@ -21,7 +21,7 @@ define Package/$(PKG_NAME)
   CATEGORY:=LuCI
   TITLE:=LuCI support for mosdns Settings by xwcoco
   PKGARCH:=all
-  DEPENDS:=+luci-base +@LUCI_LANG_zh-cn
+  DEPENDS:=+luci-base +mosdns
 endef
 
 define Package/$(PKG_NAME)/description
