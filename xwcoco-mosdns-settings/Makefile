@@ -25,7 +25,7 @@ define Package/$(PKG_NAME)
 endef
 
 define Package/$(PKG_NAME)/description
-	Language Support Packages.
+  Language Support Packages.
 endef
 
 
@@ -36,10 +36,10 @@ define Build/Compile
 endef
 
 define Package/$(PKG_NAME)/install
-  $(INSTALL_DIR) $(1)/etc/mosdns
-  $(INSTALL_BIN) ./files/config.yaml $(1)/etc/mosdns/config.yaml
-  $(INSTALL_DIR) $(1)/etc/uci-defaults
-  $(INSTALL_BIN) ./files/zzz-mosdns-settings $(1)/etc/uci-defaults/99-mosdns-settings
+	$(INSTALL_DIR) $(1)/etc/mosdns
+	$(INSTALL_BIN) ./files/config.yaml $(1)/etc/mosdns/config.yaml
+	$(INSTALL_DIR) $(1)/etc/uci-defaults
+	$(INSTALL_BIN) ./files/zzz-mosdns-settings $(1)/etc/uci-defaults/99-mosdns-settings
 endef
 
 $(eval $(call BuildPackage,$(PKG_NAME)))
