@@ -82,7 +82,7 @@ sed -i 's#root::0:0:99999:7:::#root:$1$9mi80fAa$o.d2j7HkjDBmhTp/..Oqq0:18271:0:9
 #sed -i '/DISTRIB_DESCRIPTION/d' /etc/openwrt_release
 #echo "DISTRIB_DESCRIPTION='OpenWrt '" >> /etc/openwrt_release
 
-echo "DISTRIB_DESCRIPTION='$(date +%Y-%m-%d-%H:%M)' @Openwrt" >> /etc/openwrt_release
+echo "DISTRIB_DESCRIPTION='$(date +%Y-%m-%d) @Openwrt ‘" >> /etc/openwrt_release
 
 
 exit 0
