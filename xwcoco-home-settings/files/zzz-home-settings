@@ -18,6 +18,7 @@ uci set network.lan.netmask='255.255.255.0'
 uci set network.lan.gateway='192.168.50.1'
 uci set network.lan.dns='202.102.224.68'
 #uci set network.lan.type='bridge'
+uci set network.lan.ipv6='off'
 
 uci set network.wan = interface
 uci set network.wan.ifname = 'eth0'
@@ -34,8 +35,21 @@ uci add dhcp domain
 uci set dhcp.@domain[-1].name='xwhomeesxi.lan'
 uci set dhcp.@domain[-1].ip='192.168.50.2'
 
-uci -q delete dhcp.@dnsmasq[0].server
-uci add_list dhcp.@dnsmasq[0].server="127.0.01#5335"
+/etc/init.d/odhcpd disable
+
+uci del dhcp.lan.start
+uci del dhcp.lan.limit
+uci del dhcp.lan.leasetime
+uci del dhcp.lan.ra
+uci del dhcp.lan.dhcpv6
+
+uci set dhcp.lan=dhcp
+uci set dhcp.lan.interface='lan'
+uci set dhcp.lan.ignore="1"
+
+uci set dhcp.wan=dhcp
+uci set dhcp.wan.interface='wan'
+uci set dhcp.wan.ignore='1'
 
 uci commit dhcp
 
