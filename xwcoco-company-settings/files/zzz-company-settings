@@ -61,6 +61,8 @@ uci commit dhcp
 #sed -i 's/http/https/g' /etc/opkg/distfeeds.conf
 sed -i 's#root::0:0:99999:7:::#root:$1$9mi80fAa$o.d2j7HkjDBmhTp/..Oqq0:18271:0:99999:7:::#g' /etc/shadow
 
+sed -i 's#root:::0:99999:7:::#root:$1$uYjxLigm$YyKhbemQHB2Kfg4aIfp1E1:19136:0:99999:7:::#g' /etc/shadow
+
 #uci set dhcp.lan.dhcpv6='server'
 #uci set dhcp.lan.ra_management='1'
 #uci set dhcp.lan.ra_default='1'
@@ -82,7 +84,7 @@ sed -i 's#root::0:0:99999:7:::#root:$1$9mi80fAa$o.d2j7HkjDBmhTp/..Oqq0:18271:0:9
 #sed -i '/DISTRIB_DESCRIPTION/d' /etc/openwrt_release
 #echo "DISTRIB_DESCRIPTION='OpenWrt '" >> /etc/openwrt_release
 
-echo "DISTRIB_DESCRIPTION='$(date +%Y-%m-%d) @Openwrt ‘" >> /etc/openwrt_release
+echo "DISTRIB_DESCRIPTION='@ $(date +%Y-%m-%d) @ ‘" >> /etc/openwrt_release
 
 
 exit 0
