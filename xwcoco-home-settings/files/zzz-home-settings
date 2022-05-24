@@ -46,10 +46,10 @@ uci set dhcp.wan=dhcp
 uci set dhcp.wan.interface='wan'
 uci set dhcp.wan.ignore='1'
 
-uci set dhcp.@dnsmasq[0].rebind_domain='/plex.direct/'
-uci add dhcp domain
-uci set dhcp.@domain[-1].name='xwhomeesxi.lan'
-uci set dhcp.@domain[-1].ip='192.168.50.2'
+#uci set dhcp.@dnsmasq[0].rebind_domain='/plex.direct/'
+#uci add dhcp domain
+#uci set dhcp.@domain[-1].name='xwhomeesxi.lan'
+#uci set dhcp.@domain[-1].ip='192.168.50.2'
 
 uci commit dhcp
 
