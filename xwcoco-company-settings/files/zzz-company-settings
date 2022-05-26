@@ -33,7 +33,11 @@ uci set network.wan = interface
 uci set network.wan.ifname = 'eth0'
 uci set network.wan.proto='none'
 
+uci del network.lan.ip6assign
+
+
 uci commit network
+
 
 #uci set 'network.lan.ipv6=off'
 #uci set 'network.wan.ipv6=off'
