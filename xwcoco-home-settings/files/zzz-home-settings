@@ -6,12 +6,23 @@ uci set system.@system[0].timezone=CST-8
 uci set system.@system[0].zonename=Asia/Shanghai
 uci commit system
 
+
+
+uci set luci.main.lang=zh_cn
+uci commit luci
+
+uci set system.@system[0].timezone=CST-8
+uci set system.@system[0].zonename=Asia/Shanghai
+uci commit system
+
 uci set network.lan=interface
 uci set network.lan.ifname='eth0'
 uci set network.lan.proto='static'
 uci set network.lan.ipaddr='192.168.50.3'
+#uci set network.lan.ipaddr='192.168.50.6'
 uci set network.lan.netmask='255.255.255.0'
 uci set network.lan.gateway='192.168.50.1'
+#uci set network.lan.gateway='192.168.0.1'
 uci set network.lan.dns='202.102.224.68'
 #uci set network.lan.type='bridge'
 uci set network.lan.ipv6='off'
@@ -22,7 +33,11 @@ uci set network.wan = interface
 uci set network.wan.ifname = 'eth0'
 uci set network.wan.proto='none'
 
+uci del network.lan.ip6assign
+
+
 uci commit network
+
 
 #uci set 'network.lan.ipv6=off'
 #uci set 'network.wan.ipv6=off'
@@ -43,11 +58,6 @@ uci set dhcp.lan.ignore="1"
 uci set dhcp.wan=dhcp
 uci set dhcp.wan.interface='wan'
 uci set dhcp.wan.ignore='1'
-
-#uci set dhcp.@dnsmasq[0].rebind_domain='/plex.direct/'
-uci add dhcp domain
-uci set dhcp.@domain[-1].name='xwhomeesxi.lan'
-uci set dhcp.@domain[-1].ip='192.168.50.2'
 
 uci commit dhcp
 
@@ -78,10 +88,7 @@ sed -i 's#root:::0:99999:7:::#root:$1$uYjxLigm$YyKhbemQHB2Kfg4aIfp1E1:19136:0:99
 #sed -i '/DISTRIB_DESCRIPTION/d' /etc/openwrt_release
 #echo "DISTRIB_DESCRIPTION='OpenWrt '" >> /etc/openwrt_release
 
-echo "DISTRIB_DESCRIPTION='@ $(date +%Y-%m-%d) @‘" >> /etc/openwrt_release
+echo "DISTRIB_DESCRIPTION='@ $(date +%Y-%m-%d) @ ‘" >> /etc/openwrt_release
 
 
 exit 0
-
-
-
