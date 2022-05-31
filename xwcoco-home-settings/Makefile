@@ -39,7 +39,7 @@ endef
 
 define Package/xwcoco-home-settings/install
 	$(INSTALL_DIR) $(1)/etc/uci-defaults
-	$(INSTALL_BIN) ./files/zzz-home-settings $(1)/etc/uci-defaults/99-home-settings
+	$(INSTALL_BIN) ./files/zzz-home-settings $(1)/etc/uci-defaults/99-chome-settings
 endef
 
 $(eval $(call BuildPackage,xwcoco-home-settings))
