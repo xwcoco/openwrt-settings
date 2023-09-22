@@ -59,6 +59,9 @@ uci set dhcp.wan=dhcp
 uci set dhcp.wan.interface='wan'
 uci set dhcp.wan.ignore='1'
 
+uci add_list dhcp.@dnsmasq[0].server="/*.dfsoft.com.cn/192.168.0.200"
+uci add_list dhcp.@dnsmasq[0].rebind_domain="dfsoft.com.cn" 
+
 uci commit dhcp
 
 #sed -i 's/downloads.openwrt.org/openwrt.proxy.ustclug.org/g' /etc/opkg/distfeeds.conf
